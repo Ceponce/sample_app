@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-
-str = 'Ruby on Rails Tutorial Sample App |'
-
 describe "Static Pages" do
+
+let(:str) { "Ruby on Rails Tutorial Sample App" }
+
 #------------------------
  describe "Home page" do
   it "should have the h1 'Sample App'" do 
@@ -14,7 +14,7 @@ describe "Static Pages" do
  it "should have the right title 'Home'" do
    visit '/static_pages/home'
    page.should have_selector('title',
-			:text => "#{str} Home")
+			:text => "#{str} | Home")
  end
 end
 
@@ -27,8 +27,7 @@ end
 
  it "should have the right title 'Help'" do
    visit '/static_pages/help'
-   page.should have_selector('title',
-			:text => str + " Help")
+   page.should have_selector("title", :text => "#{str} | Help")
  end
 end
 
@@ -42,7 +41,20 @@ end
  it "should have the right title 'About Us'" do
    visit '/static_pages/about'
    page.should have_selector('title',
-			:text => "#{str} About Us")
+			:text => "#{str} | About Us")
   end
  end
+
+#--------------------
+ describe "Contact page" do
+  it "should have the h1 'Contact'" do
+  visit '/static_pages/contact'
+  page.should have_selector( 'h1', :text => 'Contact')
+ end
+
+ it "should have the right title 'Contact'" do 
+  visit '/static_pages/contact'
+  page.should have_selector( 'title', :text => "#{str} | Contact")
+  end
+ end 
 end
