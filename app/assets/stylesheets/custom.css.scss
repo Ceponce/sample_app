@@ -66,11 +66,12 @@ p {
 	padding-top: 9px;
 	font-weight: bold;
 	line-height: 1;
-}
 
-#logo:hover {
-	coloer: #fff;
-	text-decoration: none;
+
+	&:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
 /* footer */
